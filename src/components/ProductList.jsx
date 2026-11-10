@@ -2,11 +2,27 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 const ProductList = ({ products }) => {
-  // TODO: Check if the product list is empty and display a message if needed
+  if (!products || products.length === 0) {
+    return (
+      <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+        <p>No products available matching your criteria.</p>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      {/* TODO: Iterate over the products array and render a ProductCard for each product */}
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', 
+      gap: '20px',
+      padding: '20px 0'
+    }}>
+      {products.map((singleProduct) => (
+        <ProductCard 
+          key={singleProduct.id} 
+          product={singleProduct} 
+        />
+      ))}
     </div>
   );
 };
