@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from '@testing-library/react'
-import App from '../App'
+import App from '../App.jsx'
 
 const sampleProducts = [
   { id: 1, name: 'Laptop', price: '$999', inStock: true },
