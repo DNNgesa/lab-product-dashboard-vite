@@ -1,21 +1,16 @@
 import React from 'react';
 import styles from '../styles/ProductCard.module.css';
 
-export const ProductCard = ({ product, name, price, inStock, onRemove }) => {
-  const finalName = name || (product && product.name);
-  const finalPrice = price || (product && product.price);
-  const finalInStock = inStock !== undefined ? inStock : (product && product.inStock);
-  const finalId = product && product.id;
-
-  const cardClassName = `${styles.cardContainer || ''} ${!finalInStock ? 'outOfStockClass' : ''}`;
+export default function ProductCard({ product, onRemove }) {
+  const cardClassName = `${styles.cardContainer || ''} ${!product.inStock ? 'outOfStockClass' : ''}`;
 
   return (
     <div className={cardClassName} style={{ border: '1px solid #ccc', padding: '16px', borderRadius: '6px' }}>
-      <h3>{finalName}</h3>
-      <p>{finalPrice}</p>
+      <h3>{product.name}</h3>
+      <p>{product.price}</p>
 
       <div style={{ marginBottom: '12px' }}>
-        {finalInStock ? (
+        {product.inStock ? (
           <span style={{ color: 'green', fontWeight: 'bold' }}>● In Stock</span>
         ) : (
           <span style={{ color: 'red', fontWeight: 'bold' }}>○ Out of Stock</span>
@@ -23,7 +18,7 @@ export const ProductCard = ({ product, name, price, inStock, onRemove }) => {
       </div>
 
       <button 
-        onClick={() => onRemove && onRemove(finalId)}
+        onClick={() => onRemove && onRemove(product.id)}
         style={{
           width: '100%',
           padding: '6px',
@@ -38,6 +33,4 @@ export const ProductCard = ({ product, name, price, inStock, onRemove }) => {
       </button>
     </div>
   );
-};
-
-export default ProductCard;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ProductList from './components/ProductList';
+import ProductList from './components/ProductList.jsx';
 
-export const App = () => {
+export default function App() {
   const [products, setProducts] = useState([
     { id: 1, name: 'Laptop', price: '$999', inStock: true },
     { id: 2, name: 'Phone', price: '$699', inStock: false },
@@ -33,6 +33,4 @@ export const App = () => {
       <ProductList products={filteredProducts} onRemove={handleRemoveProduct} />
     </div>
   );
-};
-
-export default App;
+}
