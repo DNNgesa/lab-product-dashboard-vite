@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../styles/ProductCard.module.css';
 
-export const ProductCard = ({ product, name, price, inStock, onRemove, id }) => {
+export const ProductCard = ({ product, name, price, inStock, onRemove }) => {
   const finalName = name || (product && product.name);
   const finalPrice = price || (product && product.price);
   const finalInStock = inStock !== undefined ? inStock : (product && product.inStock);
-  const finalId = id || (product && product.id);
+  const finalId = product && product.id;
 
   const cardClassName = `${styles.cardContainer || ''} ${!finalInStock ? 'outOfStockClass' : ''}`;
 
