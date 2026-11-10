@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/ProductCard.module.css';
 
-export default function ProductCard({ product, onRemove }) {
+function ProductCard({ product, onRemove }) {
   const cardClassName = `${styles.cardContainer || ''} ${!product.inStock ? 'outOfStockClass' : ''}`;
 
   return (
@@ -34,3 +34,5 @@ export default function ProductCard({ product, onRemove }) {
     </div>
   );
 }
+
+export default ProductCard; 

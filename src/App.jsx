@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ProductList from './components/ProductList.jsx';
+import ProductList from './components/ProductList'; 
 
-export default function App() {
+function App() {
   const [products, setProducts] = useState([
     { id: 1, name: 'Laptop', price: '$999', inStock: true },
     { id: 2, name: 'Phone', price: '$699', inStock: false },
@@ -34,3 +34,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App; 

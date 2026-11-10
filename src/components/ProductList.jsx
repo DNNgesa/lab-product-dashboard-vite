@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductCard from './ProductCard.jsx';
+import ProductCard from './ProductCard'; 
 
-export default function ProductList({ products, onRemove }) {
+function ProductList({ products, onRemove }) {
   if (!products || products.length === 0) {
     return <div style={{ textAlign: 'center', color: '#666' }}>No products available.</div>;
   }
@@ -18,3 +18,5 @@ export default function ProductList({ products, onRemove }) {
     </div>
   );
 }
+
+export default ProductList; 
